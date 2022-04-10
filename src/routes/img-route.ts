@@ -1,0 +1,16 @@
+import express from 'express';
+import missingFile from '../middlewares/missing-file';
+import validationImage from '../middlewares/check-thumb-exists';
+import notFoundImg from '../middlewares/not-found';
+import { thumbDirectory } from '../middlewares/thumb';
+import { imgController } from '../controller/img-controller';
+
+const imgRoute = express.Router();
+
+imgRoute.get(
+  '/images',
+  [missingFile, validationImage, notFoundImg,thumbDirectory],
+  imgController
+);
+export default  imgRoute ;
+
