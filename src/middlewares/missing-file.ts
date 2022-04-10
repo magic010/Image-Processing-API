@@ -8,6 +8,6 @@ const missingFile = (req: Request, res: Response, next: NextFunction) => {
   if (!filename || !width || !height) {
     return res.status(400).send({ error: 'file entered incorrect' });
   }
-  return next();
+   next();
 };
 export default  missingFile ;
